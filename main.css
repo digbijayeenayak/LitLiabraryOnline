@@ -1,0 +1,305 @@
+/* Basic Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #343a40;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 20px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.navbar-toggler {
+  background-color: #007bff;
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* Adding new Navbar Sections for Genres, Upload, and Admin */
+.navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .navbar-nav .nav-item {
+  margin-left: 20px;
+}
+
+.navbar .navbar-nav .nav-item a {
+  font-weight: bold;
+}
+
+/* Genres Dropdown */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #343a40;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #007bff;
+}
+
+/* Admin & Upload Section */
+.navbar .nav-item.admin-upload {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-item.admin-upload a {
+  margin-left: 30px;
+  background-color: #28a745;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.navbar .nav-item.admin-upload a:hover {
+  background-color: #218838;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  border-radius: 25px;
+  border: 2px solid transparent;
+  padding: 8px 15px;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  transition: width 0.5s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-bar.active input {
+  width: 200px;
+  opacity: 1;
+  visibility: visible;
+  border-color: #007bff;
+}
+
+.search-bar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.search-bar button i {
+  font-size: 18px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Animation */
+@keyframes slideIn {
+  0% {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Card Animations */
+.card {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Square Format for Book Cards */
+.card-body {
+  padding: 15px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card.sq-card img {
+  border-radius: 10px;
+}
+
+/* Footer Animations */
+footer {
+  position: relative;
+  padding: 20px 0;
+  background-color: #212529;
+  color: white;
+  animation: fadeIn 1s ease-in-out;
+}
+
+footer .container-fluid {
+  text-align: center;
+}
+
+/* Pagination Animation */
+.page-link {
+  transition: all 0.3s ease;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: white;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.page-item .page-link:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-collapse {
+      text-align: center;
+  }
+
+  .navbar-nav {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: center;
+  }
+
+  .navbar-nav .nav-item {
+      width: 100%;
+      margin: 10px 0;
+  }
+
+  .navbar-nav .nav-item a {
+      padding: 10px;
+  }
+
+  .navbar-toggler {
+      margin-right: 20px;
+  }
+}
+
+/* Mobile Navbar Tweaks */
+@media (max-width: 576px) {
+  .navbar .navbar-nav {
+      display: block;
+  }
+
+  .navbar .navbar-nav .nav-item {
+      margin-left: 0;
+  }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: none;
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3;
+}
